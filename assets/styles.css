@@ -421,13 +421,13 @@ a:hover { text-decoration-color: var(--blue); color: var(--blue); }
 
 /* About */
 .about__text p { font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); line-height: 1.5; max-width: 34rem; }
-.about__seek h3 { font-size: 1rem; font-weight: 500; color: var(--ink-2); }
-.about__seek ul { margin-top: 0.75rem; }
-.about__seek li { padding-block: 0.625rem; border-top: 1px solid var(--rule); font-weight: 500; }
-.about__seek li:last-child { border-bottom: 1px solid var(--rule); }
+.about__work h3 { font-size: 1rem; font-weight: 500; color: var(--ink-2); }
+.about__work ul { margin-top: 0.75rem; }
+.about__work li { padding-block: 0.625rem; border-top: 1px solid var(--rule); font-weight: 500; }
+.about__work li:last-child { border-bottom: 1px solid var(--rule); }
 @media (min-width: 900px) {
   .about__text { grid-column: 4 / 9; }
-  .about__seek { grid-column: 10 / 13; }
+  .about__work { grid-column: 10 / 13; }
 }
 
 /* Contact */
@@ -474,9 +474,7 @@ a:hover { text-decoration-color: var(--blue); color: var(--blue); }
   border: var(--wire) solid var(--blue); background: var(--paper);
   transition: scale 0.35s var(--ease-out) calc(var(--c) * 70ms + var(--i) * 45ms);
 }
-.timeline__dots i.is-milestone { background: var(--blue); border-radius: 2px; }
 .timeline__list { grid-column: 2; display: flex; flex-wrap: wrap; gap: 0.125rem 0.875rem; font-size: 0.9375rem; color: var(--ink-2); }
-.timeline__list .is-milestone { color: var(--ink); font-weight: 500; }
 .timeline.is-pending .timeline__dots i { scale: 0; }
 
 @media (min-width: 900px) {
