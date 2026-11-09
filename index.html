@@ -1,1018 +1,319 @@
-<!DOCTYPE html>
-<html lang="ru"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Егор Овечкин · резюме</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="index_files/css2.css" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f5f1e8;
-    --bg-soft: #ebe5d6;
-    --paper: #fdfbf6;
-    --ink: #14171e;
-    --ink-2: #3a4256;
-    --ink-3: #7c7a72;
-    --line: #e1d9c6;
-    --line-soft: #ece6d5;
-    --accent: #1e5e4a;
-    --accent-soft: #d4e6dd;
-    --warm: #c2542a;
-    --warm-soft: #f3dccb;
-    --gold: #c89a3a;
-    --shadow-sm: 0 1px 2px rgba(20,23,30,0.04);
-    --shadow: 0 4px 16px -2px rgba(20,23,30,0.06);
-    --shadow-lg: 0 12px 40px -8px rgba(20,23,30,0.10);
-  }
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Егор Овечкин — начинающий Python-разработчик</title>
+  <meta name="description" content="Егор Овечкин, начинающий Python-разработчик и студент РТУ МИРЭА. Веб-сервисы на FastAPI и PostgreSQL, главный проект — платформа Saturn. Делаю сайты на заказ.">
+  <meta name="theme-color" content="#EDEFF2">
+  <link rel="canonical" href="https://egkodin.github.io/resume/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://egkodin.github.io/resume/">
+  <meta property="og:title" content="Егор Овечкин — начинающий Python-разработчик">
+  <meta property="og:description" content="Веб-сервисы на FastAPI и PostgreSQL. Главный проект — Saturn: чат в реальном времени, ИИ-редактор, тесты и Docker.">
+  <meta property="og:image" content="https://egkodin.github.io/resume/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Outfit', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    line-height: 1.55;
-    font-size: 15.5px;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    background-image:
-      radial-gradient(circle at 12% 8%, rgba(30,94,74,0.04) 0%, transparent 32%),
-      radial-gradient(circle at 88% 92%, rgba(194,84,42,0.05) 0%, transparent 35%);
-  }
-
-  /* Subtle grid pattern */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(20,23,30,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(20,23,30,0.025) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: 0;
-    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 80%);
-  }
-
-  .wrap {
-    position: relative;
-    z-index: 1;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 28px 32px 80px;
-  }
-
-  /* ─── Top bar ─── */
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 18px;
-    border-bottom: 1px dashed var(--line);
-    margin-bottom: 56px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.02em;
-    color: var(--ink-3);
-  }
-  .topbar .left, .topbar .right { display: flex; gap: 22px; align-items: center; flex-wrap: wrap;}
-  .topbar .dot {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: #2ea869;
-    box-shadow: 0 0 0 0 rgba(46,168,105,0.6);
-    animation: pulse 2.2s infinite;
-    margin-right: 6px;
-    vertical-align: middle;
-  }
-  @keyframes pulse {
-    0%   { box-shadow: 0 0 0 0 rgba(46,168,105,0.6); }
-    70%  { box-shadow: 0 0 0 8px rgba(46,168,105,0); }
-    100% { box-shadow: 0 0 0 0 rgba(46,168,105,0); }
-  }
-  .topbar a { color: var(--ink-2); text-decoration: none; transition: color .2s; }
-  .topbar a:hover { color: var(--accent); }
-  .topbar .sep { color: var(--ink-3); opacity: .5; }
-
-  /* ─── Hero ─── */
-  .hero { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; margin-bottom: 88px; align-items: start;}
-  .hero-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--accent);
-    margin-bottom: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .hero-tag::before { content: ""; width: 28px; height: 1px; background: var(--accent); }
-
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-weight: 400;
-    font-size: clamp(56px, 9.5vw, 132px);
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 28px;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-    position: relative;
-    display: inline-block;
-  }
-  .hero h1 em::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: 6px;
-    height: 8px;
-    background: var(--warm-soft);
-    z-index: -1;
-    border-radius: 3px;
-  }
-
-  .hero-sub {
-    font-size: 19px;
-    line-height: 1.5;
-    color: var(--ink-2);
-    max-width: 540px;
-    margin-bottom: 30px;
-  }
-  .hero-sub strong { color: var(--ink); font-weight: 600; }
-
-  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
-  .pill {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    padding: 6px 12px;
-    border: 1px solid var(--line);
-    background: var(--paper);
-    border-radius: 999px;
-    color: var(--ink-2);
-    transition: all .2s;
-  }
-  .pill.accent { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-  .pill.warm { background: var(--warm-soft); color: var(--warm); border-color: var(--warm); }
-
-  .hero-card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 26px;
-    position: relative;
-    align-self: start;
-    box-shadow: var(--shadow);
-  }
-  .hero-card .row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px;}
-  .hero-card .row:last-child { border-bottom: 0; }
-  .hero-card .row .k { color: var(--ink-3); font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em;}
-  .hero-card .row .v { color: var(--ink); font-weight: 500; text-align: right; max-width: 60%;}
-  .hero-card .row .v a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor;}
-  .hero-card .corner {
-    position: absolute;
-    top: -10px; right: 22px;
-    background: var(--accent);
-    color: var(--bg);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.1em;
-    padding: 4px 10px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-
-  .hero-photo {
-    position: relative;
-    margin: -8px -8px 22px;
-    border-radius: 16px;
-    overflow: hidden;
-    height: clamp(360px, 38vw, 440px);
-    background: var(--ink);
-    border: 1px solid var(--line-soft);
-    box-shadow: var(--shadow-lg);
-  }
-  .hero-photo img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center 36%;
-    filter: saturate(0.96) contrast(1.02);
-  }
-  .hero-photo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(20,23,30,0.00) 44%, rgba(20,23,30,0.46) 100%),
-      radial-gradient(circle at 18% 12%, rgba(253,251,246,0.18), transparent 34%);
-    pointer-events: none;
-  }
-  .hero-photo .photo-caption {
-    position: absolute;
-    left: 14px;
-    right: 14px;
-    bottom: 13px;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    align-items: center;
-    color: var(--paper);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-shadow: 0 1px 10px rgba(0,0,0,0.35);
-  }
-  .hero-photo .photo-caption::after {
-    content: "";
-    width: 34px;
-    height: 1px;
-    background: rgba(253,251,246,0.7);
-    flex-shrink: 0;
-  }
-
-  /* ─── Section ─── */
-  section { margin-bottom: 96px; }
-  .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 36px; }
-  .sec-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-  }
-  .sec-title {
-    font-family: 'DM Serif Display', serif;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 1;
-    letter-spacing: -0.015em;
-    color: var(--ink);
-  }
-  .sec-rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
-
-  /* ─── About ─── */
-  .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px;}
-  .about p { font-size: 17.5px; line-height: 1.6; color: var(--ink-2); margin-bottom: 16px; }
-  .about p strong { color: var(--ink); font-weight: 600; }
-  .about .hl { color: var(--accent); font-weight: 500; }
-
-  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px;}
-  .stat {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 18px 18px 16px;
-    transition: transform .2s, box-shadow .2s;
-  }
-  .stat:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-  .stat .num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 38px;
-    line-height: 1;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-  .stat .lbl { font-size: 12.5px; color: var(--ink-3); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em;}
-
-  /* ─── Tech marquee ─── */
-  .marquee-wrap {
-    background: var(--ink);
-    color: var(--bg);
-    border-radius: 18px;
-    padding: 22px 0;
-    overflow: hidden;
-    margin-bottom: 60px;
-    position: relative;
-  }
-  .marquee-wrap::before, .marquee-wrap::after {
-    content: "";
-    position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
-  }
-  .marquee-wrap::before { left: 0; background: linear-gradient(90deg, var(--ink), transparent); }
-  .marquee-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--ink), transparent); }
-
-  .marquee {
-    display: flex;
-    gap: 36px;
-    white-space: nowrap;
-    animation: scroll 30s linear infinite;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 18px;
-    font-weight: 500;
-  }
-  .marquee span { display: inline-flex; align-items: center; gap: 36px; }
-  .marquee span::after { content: "✦"; color: var(--warm); font-size: 14px;}
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
-  /* ─── Skills bento ─── */
-  .bento {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 14px;
-  }
-  .b-cell {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 22px;
-    transition: transform .25s, box-shadow .25s, border-color .25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .b-cell:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
-  .b-cell .ic {
-    width: 36px; height: 36px;
-    border-radius: 10px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    display: inline-flex;
-    align-items: center; justify-content: center;
-    margin-bottom: 14px;
-  }
-  .b-cell.warm .ic { background: var(--warm-soft); color: var(--warm);}
-  .b-cell.dark .ic { background: var(--ink); color: var(--bg);}
-  .b-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--ink-3); text-transform: uppercase; margin-bottom: 6px; }
-  .b-cell h3 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 22px; margin-bottom: 8px; color: var(--ink);}
-  .b-cell p { font-size: 13.5px; color: var(--ink-2); line-height: 1.5;}
-  .b-cell ul { list-style: none; display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px;}
-  .b-cell ul li {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11.5px;
-    padding: 3px 8px;
-    background: var(--bg-soft);
-    color: var(--ink-2);
-    border-radius: 5px;
-  }
-  .b-cell.b1 { grid-column: span 3; }
-  .b-cell.b2 { grid-column: span 3; }
-  .b-cell.b3 { grid-column: span 2; }
-  .b-cell.b4 { grid-column: span 2; }
-  .b-cell.b5 { grid-column: span 2; }
-  .b-cell.b6 { grid-column: span 6; }
-
-  /* ─── Projects ─── */
-  .proj { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .proj-card {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 28px;
-    transition: transform .25s, box-shadow .25s;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-  }
-  .proj-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgba(30,94,74,0.06), transparent 40%);
-    opacity: 0;
-    transition: opacity .3s;
-    pointer-events: none;
-  }
-  .proj-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg);}
-  .proj-card:hover::after { opacity: 1; }
-
-  .proj-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; gap: 12px;}
-  .proj-name { font-family: 'DM Serif Display', serif; font-size: 28px; line-height: 1.1; color: var(--ink);}
-  .proj-name em { color: var(--accent); font-style: italic;}
-  .proj-link {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    background: var(--ink);
-    color: var(--bg);
-    display: inline-flex; align-items: center; justify-content: center;
-    text-decoration: none;
-    flex-shrink: 0;
-    transition: transform .2s, background .2s;
-  }
-  .proj-link:hover { background: var(--accent); transform: rotate(-12deg) scale(1.08);}
-
-  .proj-desc { font-size: 14.5px; color: var(--ink-2); margin-bottom: 16px; line-height: 1.55;}
-  .proj-list { list-style: none; margin-bottom: 18px;}
-  .proj-list li {
-    position: relative;
-    padding-left: 18px;
-    font-size: 13.5px;
-    color: var(--ink-2);
-    line-height: 1.55;
-    margin-bottom: 6px;
-  }
-  .proj-list li::before {
-    content: "→";
-    position: absolute; left: 0; top: 0;
-    color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-  }
-  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;}
-  .stack span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    padding: 3px 8px;
-    background: var(--bg-soft);
-    color: var(--ink-2);
-    border-radius: 4px;
-    border: 1px solid var(--line-soft);
-  }
-  .why {
-    margin-top: 14px;
-    padding: 12px 14px;
-    background: var(--accent-soft);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 8px 8px 0;
-    font-size: 12.5px;
-    color: var(--accent);
-    font-style: italic;
-    line-height: 1.5;
-  }
-  .why b { font-style: normal; }
-
-  .proj-card.wide { grid-column: span 2; }
-  .proj-card .row-3 {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 14px;
-  }
-  .proj-card .mini {
-    background: var(--bg-soft);
-    border-radius: 8px;
-    padding: 8px 10px;
-    text-align: center;
-  }
-  .proj-card .mini .n { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--accent); line-height: 1;}
-  .proj-card .mini .l { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px;}
-
-  /* ─── Timeline ─── */
-  .timeline { position: relative; padding-left: 28px;}
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 7px; top: 8px; bottom: 8px;
-    width: 2px;
-    background: linear-gradient(180deg, var(--accent), var(--warm));
-    border-radius: 2px;
-  }
-  .t-item { position: relative; padding-bottom: 36px;}
-  .t-item:last-child { padding-bottom: 0;}
-  .t-item::before {
-    content: "";
-    position: absolute;
-    left: -28px; top: 6px;
-    width: 16px; height: 16px;
-    background: var(--bg);
-    border: 3px solid var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px var(--bg);
-  }
-  .t-item .date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    margin-bottom: 4px;
-  }
-  .t-item h3 { font-size: 19px; color: var(--ink); margin-bottom: 4px; font-weight: 600;}
-  .t-item .place { font-size: 13.5px; color: var(--ink-3); font-style: italic; margin-bottom: 10px;}
-  .t-item ul { list-style: none;}
-  .t-item ul li {
-    font-size: 14px; color: var(--ink-2);
-    line-height: 1.55; margin-bottom: 4px;
-    position: relative; padding-left: 16px;
-  }
-  .t-item ul li::before {
-    content: "·";
-    color: var(--accent);
-    position: absolute; left: 4px; top: -2px;
-    font-weight: 700; font-size: 18px;
-  }
-
-  /* ─── Education ─── */
-  .edu {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 28px 30px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 24px;
-    align-items: center;
-  }
-  .edu-logo {
-    width: 64px; height: 64px;
-    background: #fff;
-    color: var(--bg);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    object-fit: contain;
-    padding: 8px;
-    border: 1px solid var(--line-soft);
-  }
-  .edu h3 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 24px; color: var(--ink); margin-bottom: 4px;}
-  .edu p { font-size: 14px; color: var(--ink-2);}
-  .edu .meta {
-    text-align: right;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-3);
-  }
-  .edu .meta b { display: block; color: var(--ink); font-size: 14px; font-family: 'Outfit', sans-serif; font-weight: 600;}
-
-  /* ─── Roles ─── */
-  .roles { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;}
-  .role {
-    font-size: 14.5px;
-    padding: 10px 18px;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    color: var(--ink);
-    transition: all .2s;
-    cursor: default;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .role:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); transform: translateY(-2px);}
-  .role::before {
-    content: "";
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  .role:hover::before { background: var(--warm); }
-  .roles-note { font-size: 13px; color: var(--ink-3); margin-top: 18px; font-style: italic;}
-
-  /* ─── Footer ─── */
-  footer {
-    margin-top: 60px;
-    border-top: 1px dashed var(--line);
-    padding-top: 32px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: end;
-  }
-  .f-cta h2 { font-family: 'DM Serif Display', serif; font-size: 42px; line-height: 1; color: var(--ink); margin-bottom: 14px;}
-  .f-cta h2 em { color: var(--accent); font-style: italic;}
-  .f-cta p { color: var(--ink-2); font-size: 15px;}
-  .f-info { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--ink-3);}
-  .f-info a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: all .2s;}
-  .f-info a:hover { color: var(--accent); border-color: var(--accent); }
-  .f-info .placeholder { color: var(--warm); font-style: italic;}
-
-  .copy {
-    margin-top: 40px;
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11.5px;
-    color: var(--ink-3);
-    letter-spacing: 0.04em;
-  }
-
-  /* ─── Reveal animations ─── */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s, transform .8s;}
-  .reveal.in { opacity: 1; transform: translateY(0);}
-
-  /* ─── Responsive ─── */
-  @media (max-width: 900px) {
-    .wrap { padding: 20px 20px 60px; }
-    .hero { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
-    .about { grid-template-columns: 1fr; gap: 28px; }
-    .proj { grid-template-columns: 1fr; }
-    .bento { grid-template-columns: 1fr 1fr; }
-    .b-cell.b1,.b-cell.b2,.b-cell.b3,.b-cell.b4,.b-cell.b5 { grid-column: span 1; }
-    .b-cell.b6 { grid-column: span 2; }
-    .edu { grid-template-columns: auto 1fr; }
-    .edu .meta { grid-column: 1 / -1; text-align: left;}
-    footer { grid-template-columns: 1fr; }
-    .f-info { align-items: flex-start; }
-    .topbar { font-size: 11px; }
-    .topbar .left, .topbar .right { gap: 12px;}
-  }
-  @media (max-width: 520px) {
-    .bento { grid-template-columns: 1fr; }
-    .b-cell.b6 { grid-column: span 1; }
-    .proj-card .row-3 { grid-template-columns: 1fr 1fr;}
-  }
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600&family=Unbounded:wght@500;600&display=swap">
+  <link rel="preload" as="image" href="assets/img/egor-960.webp" imagesrcset="assets/img/egor-640.webp 640w, assets/img/egor-960.webp 960w" imagesizes="(min-width: 900px) 30vw, 100vw" fetchpriority="high">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/main.js" defer></script>
+  <script src="assets/orb.js" defer></script>
+  <script src="assets/arch-path.js" defer></script>
 </head>
 <body>
-  <div class="wrap">
+  <a class="skip" href="#main">К содержанию</a>
 
-    <div class="topbar">
-      <div class="left">
-        <span><span class="dot"></span>Открыт для предложений</span>
-        <span class="sep">·</span>
-        <span>Москва</span>
-      </div>
-      <div class="right">
-        <a href="#about">Обо мне</a>
-        <span class="sep">/</span>
-        <a href="#skills">Навыки</a>
-        <span class="sep">/</span>
-        <a href="#projects">Проекты</a>
-        <span class="sep">/</span>
-        <a href="#contact">Контакт</a>
-      </div>
-    </div>
+  <header class="top">
+    <nav class="top__nav" aria-label="Разделы">
+      <a href="#projects">Проекты</a>
+      <a href="#sites">Сайты</a>
+      <a href="#skills">Навыки</a>
+      <a href="#about">Обо мне</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
 
-    <header class="hero">
-      <div class="hero-left">
-        <div class="hero-tag">РЕЗЮМЕ</div>
-        <h1>Егор<br><em>Овечкин</em></h1>
-        <p class="hero-sub">
-          <strong>Начинающий IT-специалист</strong><br>
-          Тестирование · аналитика данных · Python-разработка · техническая поддержка<br>
-          Студент РТУ МИРЭА, 1 курс<br>Довожу проекты до рабочего состояния: серверная часть, базы данных, Docker, тесты и документация.
-        </p>
-        <div class="pill-row">
-          <span class="pill accent">Python · FastAPI</span>
-          <span class="pill">PostgreSQL · SQL</span>
-          <span class="pill warm">Docker · проверка кода</span>
-          <span class="pill">pytest · тестирование</span>
-          <span class="pill">Git · Linux</span>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-name">
+      <div class="hero__text">
+        <h1 class="hero__name" id="hero-name">
+          <span class="line"><span>Егор</span></span>
+          <span class="line"><span>Овечкин</span></span>
+        </h1>
+        <p class="hero__role">Начинающий Python-разработчик, студент РТУ МИРЭА</p>
+        <p class="hero__lede">Собираю веб-сервисы целиком: от схемы базы данных и API до чата в&nbsp;реальном времени, тестов и запуска в&nbsp;Docker. Делаю сайты на заказ.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://t.me/egor_kodin">Написать в Telegram</a>
+          <a class="btn btn--ghost" href="#saturn">Смотреть проекты</a>
         </div>
       </div>
-      <aside class="hero-card reveal in">
-        <div class="corner">info.json</div>
-        <figure class="hero-photo" aria-label="Фото Егора Овечкина">
-          <img src="Egor.jpg" alt="Егор Овечкин">
-          <figcaption class="photo-caption"><span>Егор Овечкин</span></figcaption>
+      <figure class="hero__photo">
+        <picture>
+          <source type="image/webp" srcset="assets/img/egor-640.webp 640w, assets/img/egor-960.webp 960w" sizes="(min-width: 900px) 30vw, 100vw">
+          <img src="Egor.jpg" width="1067" height="1475" alt="Егор Овечкин, портрет">
+        </picture>
+      </figure>
+      <div class="hero__wire" aria-hidden="true"><i class="ring"></i><span></span></div>
+    </section>
+
+    <section id="projects" class="projects" aria-labelledby="projects-title">
+      <h2 class="visually-hidden" id="projects-title">Проекты</h2>
+
+      <article class="saturn" id="saturn" aria-labelledby="saturn-title">
+        <div class="saturn__inner">
+          <header class="saturn__head">
+            <p class="saturn__meta">Главный проект, личный, 2026</p>
+            <h3 class="saturn__title" id="saturn-title">Saturn</h3>
+            <p class="saturn__lede">Рабочее пространство для совместного написания текстов: лента, профили, комнаты с&nbsp;чатом в&nbsp;реальном времени, уведомления и редактор с&nbsp;ИИ-подсказками.</p>
+            <a class="saturn__link" href="https://github.com/egkodin/saturn">Код на GitHub</a>
+            <div class="orb" hidden aria-hidden="true"><canvas></canvas></div>
+          </header>
+
+          <figure class="arch" aria-labelledby="arch-cap">
+            <figcaption id="arch-cap" class="arch__cap">Из чего состоит Saturn</figcaption>
+            <div class="arch__play" hidden>
+              <button class="arch__btn" type="button">Показать путь сообщения</button>
+              <p class="arch__step" aria-live="polite"></p>
+            </div>
+            <div class="arch__grid">
+              <ol class="arch__flow">
+                <li class="node"><b>Браузер</b><span>HTML, CSS и JS без фреймворка</span></li>
+                <li class="node"><b>Nginx</b><span>статика и прокси</span></li>
+                <li class="node node--core"><b>FastAPI × 2</b><span>REST API и WebSocket</span></li>
+              </ol>
+              <ul class="arch__deps">
+                <li class="node"><b>PostgreSQL</b><span>данные и история чата</span></li>
+                <li class="node"><b>Redis</b><span>Pub/Sub, лимиты, сессии</span></li>
+                <li class="node"><b>S3 / MinIO</b><span>приватные файлы</span></li>
+                <li class="node"><b>ИИ-провайдер</b><span>подсказки в редакторе</span></li>
+              </ul>
+            </div>
+          </figure>
+
+          <div class="saturn__notes">
+            <section>
+              <h4>Чат на нескольких серверах</h4>
+              <p>Два экземпляра backend обмениваются сообщениями через Redis Pub/Sub, а пропущенную историю чат догружает из PostgreSQL.</p>
+            </section>
+            <section>
+              <h4>ИИ-правки без потери текста</h4>
+              <p>Модель видит только текущий документ, правка применяется к актуальной ревизии, число запросов ограничено дневным лимитом.</p>
+            </section>
+            <section>
+              <h4>Проверки в CI</h4>
+              <p>Миграции вверх и вниз на чистой базе, браузерные тесты с проверкой доступности WCAG 2.2 AA, сканеры уязвимостей и секретов.</p>
+            </section>
+          </div>
+
+          <figure class="langs" aria-labelledby="langs-cap">
+            <figcaption class="langs__cap" id="langs-cap">Код Saturn по языкам</figcaption>
+            <div class="langs__bar" aria-hidden="true"><i style="--share:53"></i><i style="--share:24"></i><i style="--share:16"></i><i style="--share:7"></i></div>
+            <ul class="langs__legend"><li><b>Python</b> 53%</li><li><b>JavaScript</b> 24%</li><li><b>CSS</b> 16%</li><li><b>HTML</b> 7%</li></ul>
+          </figure>
+
+          <p class="saturn__stack"><span class="visually-hidden">Стек: </span>Python, FastAPI, SQLAlchemy 2, Alembic, PostgreSQL, Redis, MinIO, Nginx, Docker Compose, pytest, Playwright</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="sites" class="sites" aria-labelledby="sites-title">
+      <div class="sites__head">
+        <h2 class="section-title" id="sites-title">Сайты на заказ</h2>
+        <p class="sites__intro">Делаю сайты под ключ: структура, дизайн, адаптивная вёрстка и публикация на домене.</p>
+      </div>
+        <article class="case">
+          <a class="case__shot" href="https://cfc-sportacadem.ru/" tabindex="-1" aria-hidden="true"><img src="assets/img/sites/sportacadem-1600.webp" srcset="assets/img/sites/sportacadem-960.webp 960w, assets/img/sites/sportacadem-1600.webp 1600w, assets/img/sites/sportacadem-2400.webp 2400w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="1000" loading="lazy" decoding="async" alt=""></a>
+          <div class="case__text">
+            <p class="case__meta">Для клиента, 2026</p>
+            <h3 class="case__title"><a href="https://cfc-sportacadem.ru/">СпортАкадемКлуб</a></h3>
+            <p>Сайт детского футбольного клуба в Москве: тренеры, залы, группы и абонементы, расписание и запись на бесплатную пробную тренировку.</p>
+            <p class="case__stack">React, TypeScript, Vite</p>
+            <p class="case__links"><a href="https://cfc-sportacadem.ru/">cfc-sportacadem.ru</a><a href="https://github.com/egkodin/football">Код на GitHub</a></p>
+          </div>
+        </article>
+        <article class="case case--flip">
+          <a class="case__shot" href="https://egkodin.github.io/spartak-snegiri/" tabindex="-1" aria-hidden="true"><img src="assets/img/sites/spartak-1600.webp" srcset="assets/img/sites/spartak-960.webp 960w, assets/img/sites/spartak-1600.webp 1600w, assets/img/sites/spartak-2400.webp 2400w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="1000" loading="lazy" decoding="async" alt=""></a>
+          <div class="case__text">
+            <p class="case__meta">Для клиента, 2026</p>
+            <h3 class="case__title"><a href="https://egkodin.github.io/spartak-snegiri/">ДФК «Спартак» Снегири</a></h3>
+            <p>Сайт детской футбольной секции: тренеры, зал, расписание, цены и запись на тренировку. Обновляется автоматически после каждого изменения в репозитории.</p>
+            <p class="case__stack">React, TypeScript, Vite, GitHub Pages</p>
+            <p class="case__links"><a href="https://egkodin.github.io/spartak-snegiri/">Открыть сайт</a><a href="https://github.com/egkodin/spartak-snegiri">Код на GitHub</a></p>
+          </div>
+        </article>
+        <div class="concepts">
+          <h3 class="concepts__title">Концепты для вымышленных брендов</h3>
+          <article class="concept">
+            <a class="concept__shot" href="https://egkodin.github.io/sloy-store/" tabindex="-1" aria-hidden="true"><img src="assets/img/sites/sloy-1600.webp" srcset="assets/img/sites/sloy-960.webp 960w, assets/img/sites/sloy-1600.webp 1600w, assets/img/sites/sloy-2400.webp 2400w" sizes="(min-width: 900px) 30vw, 100vw" width="1600" height="1000" loading="lazy" decoding="async" alt=""></a>
+            <h4 class="concept__title"><a href="https://egkodin.github.io/sloy-store/">СЛОЙ</a></h4>
+            <p>Магазин керамики: каталог с поиском и фильтрами, корзина, избранное и оформление заказа в демо-режиме.</p>
+            <p class="case__stack">React, TypeScript, Vite</p>
+            <p class="case__links"><a href="https://github.com/egkodin/sloy-store">Код на GitHub</a></p>
+          </article>
+          <article class="concept">
+            <a class="concept__shot" href="https://egkodin.github.io/svetosled/" tabindex="-1" aria-hidden="true"><img src="assets/img/sites/svetosled-1600.webp" srcset="assets/img/sites/svetosled-960.webp 960w, assets/img/sites/svetosled-1600.webp 1600w, assets/img/sites/svetosled-2400.webp 2400w" sizes="(min-width: 900px) 30vw, 100vw" width="1600" height="1000" loading="lazy" decoding="async" alt=""></a>
+            <h4 class="concept__title"><a href="https://egkodin.github.io/svetosled/">Светослед</a></h4>
+            <p>Лендинг мастерской наборов для цианотипии: интерактивная иллюстрация и выбор комплекта с пересчётом цены.</p>
+            <p class="case__stack">HTML, CSS, JavaScript</p>
+            <p class="case__links"><a href="https://github.com/egkodin/svetosled">Код на GitHub</a></p>
+          </article>
+          <article class="concept">
+            <a class="concept__shot" href="https://egkodin.github.io/frame-01-site/" tabindex="-1" aria-hidden="true"><img src="assets/img/sites/frame-1600.webp" srcset="assets/img/sites/frame-960.webp 960w, assets/img/sites/frame-1600.webp 1600w, assets/img/sites/frame-2400.webp 2400w" sizes="(min-width: 900px) 30vw, 100vw" width="1600" height="1000" loading="lazy" decoding="async" alt=""></a>
+            <h4 class="concept__title"><a href="https://egkodin.github.io/frame-01-site/">FRAME/01</a></h4>
+            <p>Сайт независимой киностудии со страницами фильмов из одного типизированного каталога.</p>
+            <p class="case__stack">Next.js, Tailwind CSS, Motion</p>
+            <p class="case__links"><a href="https://github.com/egkodin/frame-01-site">Код на GitHub</a></p>
+          </article>
+        </div>
+    </section>
+
+    <section class="more" aria-labelledby="more-title">
+      <h2 class="section-title more__title" id="more-title">Другие проекты</h2>
+        <article class="work">
+          <p class="work__year">2026, код закрыт</p>
+          <h3 class="work__title">OxiGram</h3>
+          <div class="work__body">
+            <p>Неофициальный клиент Telegram для macOS на Rust, в ранней разработке. Работает с Telegram API через TDLib, интерфейс собран на GPUI — фреймворке редактора Zed. Код разбит на 11 модулей, привязки к API генерируются из схемы TDLib, видео и голосовые сообщения обрабатываются через FFmpeg и Opus.</p>
+          </div>
+          <p class="work__stack">Rust, TDLib, GPUI, FFmpeg</p>
+        </article>
+        <article class="work">
+          <p class="work__year">2026</p>
+          <h3 class="work__title"><a href="https://github.com/egkodin/taglet">Taglet</a></h3>
+          <div class="work__body">
+            <p>Настольный редактор тегов MP3-файлов без webview: название, альбом, номера треков, обложка. Перед первой записью сохраняет резервную копию файла и предупреждает о несохранённых изменениях.</p>
+          </div>
+          <p class="work__stack">Rust</p>
+        </article>
+        <article class="work">
+          <p class="work__year">2026</p>
+          <h3 class="work__title"><a href="https://github.com/egkodin/asterframe">Asterframe</a></h3>
+          <div class="work__body">
+            <p>Набор инструкций для ИИ-агентов, которые пишут интерфейсы: 29 команд для дизайна и аудита и 44 автоматических правила, находящих типичные шаблонные решения.</p>
+          </div>
+          <p class="work__stack">JavaScript, Markdown</p>
+        </article>
+        <article class="work">
+          <p class="work__year">2020–2022</p>
+          <h3 class="work__title"><a href="https://github.com/egkodin/1358.space">Школьный портал</a></h3>
+          <div class="work__body">
+            <p>Сайт для школьного сообщества: обратная связь с ручной модерацией и <a href="https://github.com/egkodin/1358-chat">чат по нику</a> без регистрации. Сервер переписал с Ruby on Rails на Go с MySQL. Позже проект вырос в сервис психологической поддержки школьников и занял призовое место на проектном конкурсе.</p>
+          </div>
+          <p class="work__stack">Go, MySQL, Python, HTML, CSS</p>
+        </article>
+        <article class="work">
+          <p class="work__year">2021</p>
+          <h3 class="work__title"><a href="https://github.com/egkodin/blog_django">Django Blog</a></h3>
+          <div class="work__body">
+            <p>Блог с регистрацией, входом, редактированием профиля и панелью администратора.</p>
+          </div>
+          <p class="work__stack">Python, Django</p>
+        </article>
+        <p class="early">Ещё на GitHub: чат на Flask <a href="https://github.com/egkodin/gpt-free.ru">gpt-free.ru</a>, игра <a href="https://github.com/egkodin/Breakout-Lite">Breakout Lite</a>, текстовый редактор <a href="https://github.com/egkodin/Textoom">Textoom</a>, календарь <a href="https://github.com/egkodin/pylendar">Pylendar</a>.</p>
+    </section>
+
+    <section id="skills" class="skills" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title">Навыки</h2>
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <caption class="visually-hidden">Навыки и проекты, в которых они применены</caption>
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col">Saturn</th>
+              <th scope="col">Сайты</th>
+              <th scope="col">Портал</th>
+              <th scope="col">Blog</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><b>Серверная часть</b><span>Python, FastAPI, Django, Go, REST API, WebSocket, авторизация на cookie</span></th>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot"></i><span class="visually-hidden">нет</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><b>Данные</b><span>PostgreSQL, MySQL, SQL, SQLAlchemy, миграции Alembic, Redis</span></th>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot"></i><span class="visually-hidden">нет</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><b>Интерфейсы</b><span>HTML, CSS, JavaScript, TypeScript, React, Next.js, адаптивная вёрстка</span></th>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><b>Тестирование</b><span>pytest, Playwright, проверки доступности, GitHub Actions</span></th>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot"></i><span class="visually-hidden">нет</span></td>
+              <td><i class="dot"></i><span class="visually-hidden">нет</span></td>
+            </tr>
+            <tr>
+              <th scope="row"><b>Окружение</b><span>Docker Compose, Nginx, Linux, Git, GitHub Pages</span></th>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot on"></i><span class="visually-hidden">да</span></td>
+              <td><i class="dot"></i><span class="visually-hidden">нет</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title">Обо мне</h2>
+      <div class="about__text">
+        <p>Учусь на бакалавриате РТУ МИРЭА (2025–2029) и живу в Москве. Программирую со школы: начинал с сайтов и настольных программ, сейчас пишу серверные приложения на Python.</p>
+      </div>
+      <div class="about__seek">
+        <h3>Ищу стажировку или первую работу</h3>
+        <ul>
+          <li>Python-разработка</li>
+          <li>Тестирование</li>
+          <li>Аналитика данных</li>
+          <li>Техническая поддержка</li>
+        </ul>
+      </div>
+
+        <figure class="timeline" aria-labelledby="timeline-cap">
+          <figcaption class="timeline__cap" id="timeline-cap">Проекты по годам</figcaption>
+          <ol class="timeline__years">
+            <li style="--c:0"><span class="timeline__dots" aria-hidden="true"><i style="--i:0"></i></span><b class="timeline__label">2020</b><ul class="timeline__list"><li>Школьный портал</li></ul></li>
+            <li style="--c:1"><span class="timeline__dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i></span><b class="timeline__label">2021</b><ul class="timeline__list"><li>Django Blog</li><li>Textoom</li><li>Breakout Lite</li><li>Pylendar</li><li>Чат по нику</li></ul></li>
+            <li style="--c:2"><span class="timeline__dots" aria-hidden="true"><i style="--i:0"></i></span><b class="timeline__label">2022</b><ul class="timeline__list"><li>Сервер портала на Go</li></ul></li>
+            <li style="--c:3"><span class="timeline__dots" aria-hidden="true"><i style="--i:0"></i></span><b class="timeline__label">2023</b><ul class="timeline__list"><li>gpt-free.ru</li></ul></li>
+            <li style="--c:4"><span class="timeline__dots" aria-hidden="true"></span><b class="timeline__label">2024</b><p class="timeline__list"><span aria-hidden="true">—</span><span class="visually-hidden">нет проектов</span></p></li>
+            <li style="--c:5"><span class="timeline__dots" aria-hidden="true"><i class="is-milestone" style="--i:0"></i></span><b class="timeline__label">2025</b><ul class="timeline__list"><li class="is-milestone">Поступил в РТУ МИРЭА</li></ul></li>
+            <li style="--c:6"><span class="timeline__dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></span><b class="timeline__label">2026</b><ul class="timeline__list"><li>Saturn</li><li>OxiGram</li><li>Taglet</li><li>Asterframe</li><li>FRAME/01</li><li>Светослед</li><li>СпортАкадемКлуб</li><li>СЛОЙ</li><li>ДФК «Спартак»</li></ul></li>
+          </ol>
         </figure>
-        <div class="row"><span class="k">Роль</span><span class="v">стажёр / младший специалист</span></div>
-        <div class="row"><span class="k">Локация</span><span class="v">Москва</span></div>
-        <div class="row"><span class="k">Вуз</span><span class="v">РТУ МИРЭА · 1 курс</span></div>
-        <div class="row"><span class="k">GitHub</span><span class="v"><a href="https://github.com/egkodin" target="_blank" rel="noopener">egkodin ↗</a></span></div>
-        <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:egor.coden@mail.ru">egor.coden@mail.ru</a></span></div>
-        <div class="row"><span class="k">Телефон</span><span class="v"><span class="placeholder">номер по запросу</span></span></div>
-        <div class="row"><span class="k">Telegram</span><span class="v"><span class="placeholder">@egor_kodin</span></span></div>
-      </aside>
-    </header>
+    </section>
+  </main>
 
-    <div class="marquee-wrap" aria-hidden="true">
-      <div class="marquee">
-        <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span>
-        <span>SQLAlchemy</span><span>Alembic</span><span>pytest</span><span>GitHub Actions</span>
-        <span>JavaScript</span><span>HTML / CSS</span><span>WebSocket</span><span>JWT</span>
-        <span>nginx</span><span>Linux CLI</span><span>Django</span>
-        <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span>
-        <span>SQLAlchemy</span><span>Alembic</span><span>pytest</span><span>GitHub Actions</span>
-        <span>JavaScript</span><span>HTML / CSS</span><span>WebSocket</span><span>JWT</span>
-        <span>nginx</span><span>Linux CLI</span><span>Django</span>
-      </div>
+  <footer id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="contact__inner">
+      <h2 class="contact__title" id="contact-title">Удобнее всего написать в Telegram</h2>
+      <a class="contact__main" href="https://t.me/egor_kodin"><i class="ring" aria-hidden="true"></i>@egor_kodin</a>
+      <ul class="contact__list">
+        <li><span>Почта</span><a href="mailto:egor.coden@mail.ru">egor.coden@mail.ru</a></li>
+        <li><span>GitHub</span><a href="https://github.com/egkodin">github.com/egkodin</a></li>
+      </ul>
     </div>
-
-    <section id="about">
-      <div class="sec-head">
-        <span class="sec-num">01</span>
-        <h2 class="sec-title">Профиль</h2>
-        <div class="sec-rule"></div>
-      </div>
-      <div class="about">
-        <div>
-          <p>
-            Я начинающий IT-специалист и студент <span class="hl">РТУ МИРЭА</span>. Давно занимаюсь программированием: начинал с небольших сайтов и Python-приложений, а сейчас собираю веб-проекты с серверной логикой, API, базами данных и тестами.
-          </p>
-          <p>
-            Ищу стажировку или первую IT-роль, где можно приносить пользу на практических задачах: <strong>тестирование, аналитика данных, Python-разработка, техническая поддержка</strong> или автоматизация рутины.
-          </p>
-          <p>
-            Мой сильный плюс – я не ограничиваюсь отдельными учебными примерами, а <strong>довожу проекты до рабочего состояния</strong>: серверная часть, интерфейс, база данных, Docker-запуск, миграции, тесты, проверка кода, документация и понятный README.
-          </p>
-          <p>
-            Летом готов работать <strong>полный день</strong>, с сентября – <strong>частичная занятость, гибридный или удалённый формат</strong>, чтобы совмещать работу с учёбой.
-          </p>
-        </div>
-        <div class="stat-grid">
-          <div class="stat reveal">
-            <div class="num">5+</div>
-            <div class="lbl">лет в коде</div>
-          </div>
-          <div class="stat reveal">
-            <div class="num">10+</div>
-            <div class="lbl">публичных репозиториев</div>
-          </div>
-          <div class="stat reveal">
-            <div class="num">Главный проект</div>
-            <div class="lbl">Saturn</div>
-          </div>
-          <div class="stat reveal">
-            <div class="num">1 курс</div>
-            <div class="lbl">РТУ МИРЭА · 2025–2029</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="sec-head">
-        <span class="sec-num">02</span>
-        <h2 class="sec-title">Ключевые навыки</h2>
-        <div class="sec-rule"></div>
-      </div>
-      <div class="bento">
-        <div class="b-cell b1 reveal">
-          <span class="ic">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-          </span>
-          <div class="label">серверная часть</div>
-          <h3>Python и веб-сервисы</h3>
-          <p>FastAPI и Django, REST API, авторизация, WebSocket, миграции и понятная структура проекта.</p>
-          <ul>
-            <li>Python</li><li>FastAPI</li><li>Django</li><li>SQLAlchemy</li><li>REST API</li><li>JWT</li><li>WebSocket</li><li>cookie-auth</li>
-          </ul>
-        </div>
-
-        <div class="b-cell b2 warm reveal">
-          <span class="ic">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14a9 3 0 0 0 18 0V5"></path><path d="M3 12a9 3 0 0 0 18 0"></path></svg>
-          </span>
-          <div class="label">данные</div>
-          <h3>Базы данных</h3>
-          <p>Работаю с PostgreSQL, SQL-запросами, связями таблиц и миграциями. Понимаю, как аккуратно хранить и менять данные.</p>
-          <ul>
-            <li>PostgreSQL</li><li>SQL</li><li>Alembic</li><li>схемы</li><li>миграции</li>
-          </ul>
-        </div>
-
-        <div class="b-cell b3 dark reveal">
-          <span class="ic">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-          </span>
-          <div class="label">интерфейс</div>
-          <h3>Вёрстка и интерфейсы</h3>
-          <p>Адаптивная вёрстка, чистый JavaScript, работа с DOM и API.</p>
-          <ul>
-            <li>HTML</li><li>CSS</li><li>JavaScript</li>
-          </ul>
-        </div>
-
-        <div class="b-cell b4 reveal">
-          <span class="ic">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-          </span>
-          <div class="label">инфраструктура</div>
-          <h3>Запуск и окружение</h3>
-          <p>Контейнеризация, nginx, Linux, Git и автоматическая проверка проекта.</p>
-          <ul>
-            <li>Docker</li><li>Compose</li><li>GitHub Actions</li><li>nginx</li><li>Linux CLI</li>
-          </ul>
-        </div>
-
-        <div class="b-cell b5 warm reveal">
-          <span class="ic">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-          </span>
-          <div class="label">качество</div>
-          <h3>Тестирование</h3>
-          <p>Пишу тесты, составляю чек-листы, проверяю API и пользовательские сценарии.</p>
-          <ul>
-            <li>pytest</li><li>API-тесты</li><li>чеклисты</li>
-          </ul>
-        </div>
-
-        <div class="b-cell b6 reveal">
-          <span class="ic">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"></path><circle cx="12" cy="14" r="2"></circle></svg>
-          </span>
-          <div class="label">рабочий процесс</div>
-          <h3>ИИ-инструменты и самостоятельность</h3>
-          <p>Использую ИИ-инструменты как ускоритель: для черновиков, поиска ошибок, рефакторинга и документации. При этом проверяю логику решений, разбираюсь в коде и довожу результат до рабочего состояния.</p>
-          <ul>
-            <li>ИИ-инструменты</li><li>критическое мышление</li><li>самостоятельность</li><li>быстрое обучение</li><li>внимание к деталям</li><li>автоматизация</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="sec-head">
-        <span class="sec-num">03</span>
-        <h2 class="sec-title">Избранные проекты</h2>
-        <div class="sec-rule"></div>
-      </div>
-      <div class="proj">
-
-        <article class="proj-card reveal">
-          <div class="proj-head">
-            <h3 class="proj-name">Saturn – платформа <em>люди + ИИ</em></h3>
-            <a class="proj-link" href="https://github.com/egkodin/saturn" target="_blank" rel="noopener" aria-label="Открыть на GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-            </a>
-          </div>
-          <p class="proj-desc">Полноценный веб-проект: лента постов, чат, ИИ-редактор, профили, поиск, уведомления, история версий документов и админ-панель.</p>
-          <div class="row-3">
-            <div class="mini"><div class="n">15+</div><div class="lbl">модулей</div></div>
-            <div class="mini"><div class="n">REST + WS</div><div class="lbl">API</div></div>
-            <div class="mini"><div class="n">CI ✓</div><div class="lbl">тесты</div></div>
-          </div>
-          <ul class="proj-list">
-            <li>Серверная часть на FastAPI с REST API, авторизацией и PostgreSQL</li>
-            <li>Авторизация через cookie вместо хранения JWT в <code>localStorage</code></li>
-            <li>Профили, поиск по пользователям и постам</li>
-            <li>Чат, WebSocket-авторизация и уведомления</li>
-            <li>ИИ-редактор с историей версий и откатом изменений</li>
-            <li>Админ-панель: статистика, модерация, удаление с причиной</li>
-            <li>Alembic-миграции, Docker Compose, nginx, pytest, GitHub Actions</li>
-          </ul>
-          <div class="why"><b>Для работодателя:</b> это не учебный скрипт, а система с серверной частью, базой данных, интерфейсом, структурой запуска, тестами и документацией.</div>
-          <div class="stack" style="margin-top:18px;">
-            <span>Python</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Alembic</span><span>Docker</span><span>nginx</span><span>WebSocket</span><span>pytest</span><span>CI</span>
-          </div>
-        </article>
-
-        <article class="proj-card reveal">
-          <div class="proj-head">
-            <h3 class="proj-name">Школьный веб-портал <em>· первый крупный проект</em></h3>
-            <a class="proj-link" href="https://github.com/egkodin/school-space" target="_blank" rel="noopener" aria-label="Открыть на GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-            </a>
-          </div>
-          <p class="proj-desc">Ранний веб-портал для школьного сообщества: обратная связь, ручная модерация, чат по нику и первые реальные пользователи.</p>
-          <ul class="proj-list">
-            <li>Форма обратной связи и ручная модерация пользовательских сообщений</li>
-            <li>Конфиденциальный онлайн-чат без сложной регистрации</li>
-            <li>Доработка приватности после обратной связи от школы</li>
-            <li>Переработка идеи в сервис психологической поддержки школьников</li>
-          </ul>
-          <div class="why"><b>Что показывает:</b> первый опыт не учебной задачи, а живого проекта с пользователями, обратной связью и ответственностью.</div>
-          <div class="stack" style="margin-top:18px;">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Ruby</span><span>Go</span><span>хостинг</span>
-          </div>
-        </article>
-
-        <article class="proj-card reveal">
-          <div class="proj-head">
-            <h3 class="proj-name">Django Blog</h3>
-            <a class="proj-link" href="https://github.com/egkodin/blog_django" target="_blank" rel="noopener" aria-label="Открыть на GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-            </a>
-          </div>
-          <p class="proj-desc">Веб-проект на Django с регистрацией, авторизацией, админ-панелью и редактированием профиля.</p>
-          <ul class="proj-list">
-            <li>Понимание архитектуры web-приложения</li>
-            <li>Пользователи, авторизация, сессии</li>
-            <li>Python web backend + HTML/CSS/JS</li>
-          </ul>
-          <div class="stack" style="margin-top:18px;">
-            <span>Django</span><span>Python</span><span>HTML/CSS</span><span>JavaScript</span>
-          </div>
-        </article>
-
-        <article class="proj-card reveal">
-          <div class="proj-head">
-            <h3 class="proj-name">Ранние проекты <em>· Breakout / Textoom / Pylendar</em></h3>
-            <a class="proj-link" href="https://github.com/egkodin" target="_blank" rel="noopener" aria-label="Открыть на GitHub">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-            </a>
-          </div>
-          <p class="proj-desc">Аркадная игра, текстовый редактор на Tkinter, календарь – мой путь от настольные приложения к web-системам. Создавал задолго до университета.</p>
-          <ul class="proj-list">
-            <li>Breakout Lite – игровая логика, рендер, столкновения</li>
-            <li>Textoom – текстовый редактор на Tkinter</li>
-            <li>Pylendar – календарное приложение</li>
-          </ul>
-          <div class="stack" style="margin-top:18px;">
-            <span>Python</span><span>Tkinter</span><span>настольные приложения</span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="sec-head">
-        <span class="sec-num">04</span>
-        <h2 class="sec-title">Опыт</h2>
-        <div class="sec-rule"></div>
-      </div>
-      <div class="timeline">
-        <div class="t-item reveal">
-          <div class="date">2020 – 2022</div>
-          <h3>Школьный веб-портал и первый публичный проект</h3>
-          <div class="place">Идея, разработка, обратная связь, модерация, первые пользователи</div>
-          <ul>
-            <li>Сделал веб-портал для школьного сообщества: форма обратной связи, ручная модерация и онлайн-чат.</li>
-            <li>Проект заметил преподаватель информатики из профильного IT-класса: он предложил бесплатно курс по вёрстке и занимался со мной индивидуально после уроков.</li>
-            <li>Позже идея была переработана в сервис психологической поддержки школьников для проектного конкурса.</li>
-          </ul>
-        </div>
-        <div class="t-item reveal">
-          <div class="date">2022 – 2024</div>
-          <h3>Переработка проекта, хостинг и серверная логика</h3>
-          <div class="place">Редизайн, перенос хостинга, Ruby, Go, ИИ-функции, публичная защита</div>
-          <ul>
-            <li>Полностью переработал внешний вид проекта и перенёс его с Heroku на российский хостинг после ограничений с оплатой.</li>
-            <li>Сначала пробовал Ruby, затем переписал серверную часть на Go и получил первый опыт перехода от статического сайта к приложению с логикой.</li>
-            <li>Летом 2023 интегрировал ИИ-психолога для первичных консультаций.</li>
-            <li>Дважды выступал с проектом, во второй раз занял призовое место.</li>
-          </ul>
-        </div>
-        <div class="t-item reveal">
-          <div class="date">2024 – 2026</div>
-          <h3>Самостоятельная разработка и GitHub-портфолио</h3>
-          <div class="place">Личные проекты, серверная часть, базы данных, Docker, тесты и документация</div>
-          <ul>
-            <li>Собрал Saturn – веб-платформу на FastAPI, PostgreSQL, SQLAlchemy, Alembic, Docker Compose, nginx, WebSocket и pytest.</li>
-            <li>Развиваю навык доводить идею до рабочего состояния: интерфейс, сервер, база данных, авторизация, миграции, тесты и документация.</li>
-            <li>Использую ИИ-инструменты как ускоритель разработки, но проверяю результат и привожу код к понятному виду.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="sec-head">
-        <span class="sec-num">05</span>
-        <h2 class="sec-title">Образование</h2>
-        <div class="sec-rule"></div>
-      </div>
-      <div class="edu reveal">
-        <img class="edu-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/MIREA_coat_of_arms.png" alt="Логотип РТУ МИРЭА">
-        <div>
-          <h3>РТУ МИРЭА</h3>
-          <p>Бакалавриат · 1 курс</p>
-          <p style="color: var(--ink-3); font-size: 13px; margin-top: 4px;">Интересы: искусственный интеллект · анализ данных · backend · автоматизация · тестирование</p>
-        </div>
-        <div class="meta">
-          <b>2025 – 2029</b>
-          бакалавриат
-        </div>
-      </div>
-    </section>
-
-    <!-- ─────── Roles ─────── -->
-    <section id="roles">
-      <div class="sec-head">
-        <span class="sec-num">06</span>
-        <h2 class="sec-title">Какие роли рассматриваю</h2>
-        <div class="sec-rule"></div>
-      </div>
-      <div class="roles">
-        <span class="role">Стажёр-тестировщик / младший тестировщик</span>
-        <span class="role">Стажёр-аналитик / младший аналитик данных</span>
-        <span class="role">Стажёр Python-разработчик</span>
-        <span class="role">Техническая поддержка</span>
-        <span class="role">Стажировки в продуктовых и IT-компаниях</span>
-      </div>
-      <p class="roles-note">Формат: летом – полный день, с сентября – частичная занятость, гибридно или удалённо по договорённости.</p>
-    </section>
-
-    <footer id="contact">
-      <div class="f-cta">
-        <h2>Открыт к <em>работе!</em></h2>
-        <p>Открыт к стажировкам, junior-позициям и фриланс-задачам.<br>Отвечаю быстро – пишите в любой удобный канал.</p>
-      </div>
-      <div class="f-info">
-        <a href="https://github.com/egkodin" target="_blank" rel="noopener">github.com/egkodin ↗</a>
-        <span>email: <a href="mailto:egor.coden@mail.ru">egor.coden@mail.ru</a></span>
-        <span>телефон: <span class="placeholder">номер по запросу</span></span>
-        <span>telegram: <span class="placeholder">@egor_kodin</span></span>
-      </div>
-    </footer>
-
-    <div class="copy">
-      © 2026 · Егор Овечкин · резюме обновлено 06.2026
-    </div>
-
-  </div>
-
-<script>
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  document.querySelectorAll('.proj-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
-      card.style.setProperty('--my', `${e.clientY - r.top}px`);
-    });
-  });
-</script>
-
-
-</body></html>
+  </footer>
+</body>
+</html>
